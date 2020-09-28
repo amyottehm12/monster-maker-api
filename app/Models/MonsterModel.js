@@ -8,13 +8,18 @@ const MonsterSchema = Schema({
     desc: String
 });
 
-// const Monster = mongoose.model('Monster', MonsterSchema);
+const Monster = mongoose.model('Monster', MonsterSchema);
 
-// exports.createMonster = (monsterData) => {
-//     console.log(monsterData);
-//     const monster = new Monster(monsterData);
+/// want this code to work:
+
+// exports.createMonster = (data) => {
+//     console.log(data);
+//     const monster = new Monster(data);
 //     return monster.save();
 // }
+
+
+/// Ignore these methods:
 
 // exports.findById = (id) => {
 //     return Monster.findById(id)

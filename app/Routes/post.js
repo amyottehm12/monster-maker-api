@@ -1,25 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../Models/MonsterModel');
+const Model = require('../Models/MonsterModel');
 
 router.get('/', (req, res) => {
     res.send('test');
 });
 
 router.post('/', (req, res) => {
-    
-    console.log(res.body);
 
-    const post = new Post ({
+    const model = new Model ({
         name: req.body.name,
         hp:  req.body.hp,
         ac: req.body.ac,
         desc: req.body.desc
     });
 
-    console.log("model created");
-
-    post.save()
+    model.save()
         .then( data => {
             res.json(data);
         })
@@ -27,12 +23,12 @@ router.post('/', (req, res) => {
             res.json({ message: err });
         });
 
-    console.log("data saved");
 
-    // model.createMonster(req.body)
-    //     .then((result) => {
-    //         res.status(201).send({id: result._id});
-    //     });
+        /// Replace all the above with the below (calling the method on the model itself, handing over the body data and saving there)
+        // model.createMonster(req.body)
+        //     .then((result) => {
+        //         res.status(201).send({id: result._id});
+        //     });
 });
 
 module.exports = router;
