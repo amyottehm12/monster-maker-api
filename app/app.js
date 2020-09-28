@@ -7,8 +7,8 @@ require('dotenv/config');
 const app = express();
 app.use(bodyParser.json());
 //Import Routes
-const postRoute = require('./Routes/post');
-app.use('/post', postRoute);
+const postRoute = require('./Routes/MonsterController');
+app.use('/monster', postRoute);
 
 
 //Base Route
