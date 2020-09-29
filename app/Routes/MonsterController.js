@@ -47,11 +47,11 @@ router.get('/:postId', async (req, res) => {
 
 router.delete('/:postId', async (req, res) => {
     try {
-        const removedData = await Model.Remove({ _id: req.params.postId });
+        const removedData = await Model.remove({ _id: req.params.postId });
         res.json(removedData);
     } catch(err) {
-        res.json({ message: err})
-    }
+        res.json({ message: err })
+    }   
 });
 
 
@@ -60,7 +60,7 @@ router.patch('/:postId', async (req, res) => {
         const updatedPost = await Model.updateOne({ _id: req.params.postId}, { $set: { name: req.body.name }});
         res.json(updatedPost);
     } catch(err) {
-        res.json({ message: err})
+        res.json({ message: err});
     }
 })
 
