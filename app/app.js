@@ -2,18 +2,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv/config');
 //Start app
 const app = express();
+
 app.use(bodyParser.json());
 //Import Routes
 const postRoute = require('./Routes/MonsterController');
 app.use('/monster', postRoute);
-
+app.use(cors);
 
 //Base Route
-app.get('/', (req, res) => {
-    res.send('TEST');
+app.get('/', (req, res, next) => {
+    res.send('TEST')
 });
 
 //Db Connection
@@ -26,4 +28,4 @@ mongoose.connect(
     () => { console.log('connected to db') }
 );
 
-app.listen(3000);
+app.listen(5000);
