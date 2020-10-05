@@ -6,15 +6,16 @@ const cors = require('cors');
 require('dotenv/config');
 //Start app
 const app = express();
-
 app.use(bodyParser.json());
+app.use(cors({origin: true}));
+
+
 //Import Routes
 const postRoute = require('./Routes/MonsterController');
 app.use('/monster', postRoute);
-app.use(cors);
 
 //Base Route
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
     res.send('TEST')
 });
 
