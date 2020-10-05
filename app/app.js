@@ -7,7 +7,7 @@ require('dotenv/config');
 //Start app
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({origin: true}));
+app.use(cors({origin: "http://localhost:3000"}));
 
 
 //Import Routes
